@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Netflix GPT</h1>
+      <h1 className="text-2xl underline">Netflix GPT</h1>
     </div>
   );
 }
