@@ -2,9 +2,11 @@
 
 - Create React App
 - Configured Tailwind CSS
+- Routindg app with react-router-dom
 - Header
 - Login Form
 - Sign Up Form
+- Form Validation with Formik & Yup
 
 # Features
 
