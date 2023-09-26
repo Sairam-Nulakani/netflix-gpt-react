@@ -7,6 +7,9 @@
 - Login Form
 - Sign Up Form
 - Form Validation with Formik & Yup
+- For user Regestration and Login use Nodejs for Backend
+- Mongo DB for Data Base
+- Created Redux Store with userSlice
 
 # Features
 
@@ -23,3 +26,8 @@
 - Netflix GPT
   - Search Bar
   - Movie Suggestions
+
+# Backend
+
+- nodejs for backend
+- mongodb for database

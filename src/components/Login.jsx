@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -31,6 +34,7 @@ const Login = () => {
       ? undefined
       : Yup.string().required("Mobile Number is required").min(10),
   });
+  const notify = (data) => toast(data);
 
   const formik = useFormik({
     initialValues: {
@@ -40,9 +44,28 @@ const Login = () => {
       mobilenumber: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values.email);
-      console.log(values.password);
+    onSubmit: async (values) => {
+      try {
+        if (isSignInForm) {
+          const signInResponse = await axios.post(
+            "http://localhost:8090/api/users/login",
+            values
+          );
+          console.log(signInResponse.data);
+          notify("Sign in Successfull");
+          localStorage.setItem("authToken", signInResponse.data.token);
+        } else {
+          const registerResponse = await axios.post(
+            "http://localhost:8090/api/users/register",
+            values
+          );
+          console.log(registerResponse.data);
+          notify("Regestration Successfull");
+        }
+      } catch (err) {
+        console.error("API Error:", err);
+        notify(err.response.data);
+      }
     },
   });
 
@@ -53,6 +76,8 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div>
@@ -111,7 +136,7 @@ const Login = () => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            className="p-4 my-4 w-full bg-gray-700 rounded-sm pr-12" // Add padding for the icon
+            className="p-4 my-4 w-full bg-gray-700 rounded-sm pr-12"
             name="password"
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -135,7 +160,7 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p
-          className="py-4 cursor-pointer text-sm text-gray-300"
+          className="py-4 cursor-pointer text-sm text-gray-300 hover:text-gray-400"
           onClick={toggleSignInForm}
         >
           {isSignInForm
@@ -143,6 +168,7 @@ const Login = () => {
             : "Already Registered? Sign In Now"}
         </p>
       </form>
+      <ToastContainer />
     </div>
   );
 };

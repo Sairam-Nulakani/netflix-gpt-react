@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   mobilenumber: { type: String, required: true },
   createdAt: {
     type: Date,
-    default: new Date().toLocaleString(),
+    default: Date.now(),
   },
 });
 
