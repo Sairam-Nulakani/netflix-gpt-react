@@ -33,6 +33,7 @@
 - GPT Search Feature
 - Created GPT Searchbar Component
 - Created Language Constants
+- Created configSlice Reducer for Managing Languages
 
 # Features
 

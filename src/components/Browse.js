@@ -11,11 +11,11 @@ import useUpComingMovies from "../hooks/useUpComingMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import GPTSearch from "./GPTSearch";
+import { SUPPORT_LANG } from "../utils/constants";
 
 const Browse = () => {
   const [showGptScreen, setShowGptScreen] = useState(false);
   const name = useSelector((store) => store.user);
-  console.log(name);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
