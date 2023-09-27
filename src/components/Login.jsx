@@ -60,6 +60,7 @@ const Login = () => {
           );
           notify("Sign in Successfull");
           localStorage.setItem("authToken", signInResponse.data.token);
+          localStorage.setItem("name", signInResponse.data.user.name);
           dispatch(addUser(signInResponse.data.user));
           navigate("/browse");
         } else {

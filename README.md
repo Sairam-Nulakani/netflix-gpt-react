@@ -30,6 +30,9 @@
 - Created useTrendingMovies Custom Hook
 - Created useUpComingMovies Custom Hook
 - Created Reducers for Popular,topRated,upComing,Trending Movies
+- GPT Search Feature
+- Created GPT Searchbar Component
+- Created Language Constants
 
 # Features
 
