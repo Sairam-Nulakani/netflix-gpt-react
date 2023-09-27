@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
@@ -10,8 +10,6 @@ import MoviesContainer from "./MoviesContainer";
 const Browse = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const user = useSelector((store) => store.user);
 
   const handleLogout = () => {
     dispatch(removeUser());
