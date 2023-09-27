@@ -36,8 +36,9 @@ module.exports = {
       if (user.password !== password) {
         return res.status(401).json("Wrong Password");
       }
+      const { __v, createdAt, ...userData } = user._doc;
       const token = jwt.sign({ userId: user._id }, secretKey);
-      res.status(200).json({ token });
+      res.status(200).json({ user: userData, token });
     } catch (err) {
       return res.status(500).json({ message: "Failed to log in" });
     }

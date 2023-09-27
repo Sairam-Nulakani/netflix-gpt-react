@@ -6,8 +6,15 @@ import axios from "axios";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/userSlice";
+import { useNavigate } from "react-router-dom";
+import { LOGIN_BG } from "../utils/constants";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -51,15 +58,17 @@ const Login = () => {
             "http://localhost:8090/api/users/login",
             values
           );
-          console.log(signInResponse.data);
           notify("Sign in Successfull");
           localStorage.setItem("authToken", signInResponse.data.token);
+          dispatch(addUser(signInResponse.data.user));
+          navigate("/browse");
         } else {
           const registerResponse = await axios.post(
             "http://localhost:8090/api/users/register",
             values
           );
           console.log(registerResponse.data);
+          dispatch(addUser(registerResponse.data));
           notify("Regestration Successfull");
         }
       } catch (err) {
@@ -77,16 +86,18 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const authToken = localStorage.getItem("authToken");
+    if (authToken) {
+      navigate("/browse");
+    }
+  }, [navigate]);
 
   return (
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/f85718e8-fc6d-4954-bca0-f5eaf78e0842/ea44b42b-ba19-4f35-ad27-45090e34a897/IN-en-20230918-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-          alt="logo"
-        />
+        <img src={LOGIN_BG} alt="logo" />
       </div>
       <form
         className="absolute w-4/12 my-28 mx-auto left-0 right-0 text-white flex flex-col justify-center bg-black p-12 rounded-lg bg-opacity-80"
