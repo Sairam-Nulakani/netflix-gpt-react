@@ -10,6 +10,10 @@
 - For user Regestration and Login use Nodejs for Backend
 - Mongo DB for Data Base
 - Created Redux Store with userSlice
+- Added Hardcore values to constats.js file
+- Register for TMDB API & create an App and Get Access Token
+- Get Data from TMDB now playind list api
+-
 
 # Features
 

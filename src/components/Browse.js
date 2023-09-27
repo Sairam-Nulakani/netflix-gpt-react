@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import Main from "./Main";
+import MoviesContainer from "./MoviesContainer";
 
 const Browse = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
-  console.log(user);
 
   const handleLogout = () => {
     dispatch(removeUser());
@@ -23,9 +25,9 @@ const Browse = () => {
       navigate("/");
     }
   }, [navigate]);
-
+  useNowPlayingMovies();
   return (
-    <div className="flex justify-between">
+    <div className="flex">
       <div>
         <Header />
       </div>
@@ -37,7 +39,10 @@ const Browse = () => {
           Logout
         </button>
       </div>
-      {/* <h1>{user.name}</h1> */}
+      <div>
+        <Main />
+        <MoviesContainer />
+      </div>
     </div>
   );
 };
