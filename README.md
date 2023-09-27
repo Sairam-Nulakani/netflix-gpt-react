@@ -13,7 +13,23 @@
 - Added Hardcore values to constats.js file
 - Register for TMDB API & create an App and Get Access Token
 - Get Data from TMDB now playind list api
--
+- created custom hook for Now Playing Videos
+- created MovieSlice Reducer
+- Update store with movie Data
+- Planning for Main and Movies Container
+- Fetch Data from TrailerVideo
+- Update Trailer with Video Data
+- Embebd the Youtube Video and make it autoplay and mute
+- Tailwind classes to look Main Container awesome
+- Build Movie Container Component
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Created usePopularMovies Custom Hook
+- Created useTopRatedMovies Custom Hook
+- Created useTrendingMovies Custom Hook
+- Created useUpComingMovies Custom Hook
+- Created Reducers for Popular,topRated,upComing,Trending Movies
 
 # Features
 

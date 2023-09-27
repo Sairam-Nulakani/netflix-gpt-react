@@ -6,6 +6,10 @@ import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import Main from "./Main";
 import MoviesContainer from "./MoviesContainer";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useUpComingMovies from "../hooks/useUpComingMovies";
+import useTrendingMovies from "../hooks/useTrendingMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
 
 const Browse = () => {
   const navigate = useNavigate();
@@ -24,6 +28,10 @@ const Browse = () => {
     }
   }, [navigate]);
   useNowPlayingMovies();
+  usePopularMovies();
+  useUpComingMovies();
+  useTrendingMovies();
+  useTopRatedMovies();
   return (
     <div className="flex">
       <div>
