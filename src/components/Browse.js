@@ -11,7 +11,6 @@ import useUpComingMovies from "../hooks/useUpComingMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import GPTSearch from "./GPTSearch";
-import { SUPPORT_LANG } from "../utils/constants";
 
 const Browse = () => {
   const [showGptScreen, setShowGptScreen] = useState(false);
@@ -53,7 +52,7 @@ const Browse = () => {
           className="cursor-pointer absolute z-10 bg-blue-400 px-4 py-2 rounded-lg right-36 top-6"
           onClick={handleGptSearchClick}
         >
-          GPT Search
+          {showGptScreen ? "Homepage" : "GPT Search"}
         </button>
         <button
           className="cursor-pointer absolute z-10 bg-blue-400 px-4 py-2 rounded-lg right-10 top-6"

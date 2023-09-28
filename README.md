@@ -34,6 +34,9 @@
 - Created GPT Searchbar Component
 - Created Language Constants
 - Created configSlice Reducer for Managing Languages
+- GPT integration 
+- Building GPT Searchbar Component
+- Using Openai APIs
 
 # Features
 

@@ -7,11 +7,8 @@ const MoviesContainer = () => {
   return (
     movies && (
       <div className="bg-black">
-        <div className="-mt-52 relative z-20 pl-8">
-          <MovieList
-            title={"Now Playing"}
-            movies={movies.addNowPlayingMovies}
-          />
+        <div className="-mt-40 relative z-20 pl-8">
+          <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
           <MovieList title={"UpComing Movies"} movies={movies.upcomingMovies} />
           <MovieList title={"Trending Movies"} movies={movies.trendingMovies} />
           <MovieList title={"Popular Movies"} movies={movies.popularMovies} />

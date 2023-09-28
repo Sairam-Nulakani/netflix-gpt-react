@@ -4,7 +4,7 @@ import VideoBackground from "./VideoBackground";
 import VideoTitle from "./VideoTitle";
 
 const Main = () => {
-  const movies = useSelector((store) => store.movies?.addNowPlayingMovies);
+  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   if (!movies) return;
   const mainMovie = movies[Math.floor(Math.random() * 10)];
   const { original_title, overview, id } = mainMovie;

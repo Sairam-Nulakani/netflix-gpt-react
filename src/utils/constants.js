@@ -20,3 +20,5 @@ export const SUPPORT_LANG = [
   { identifier: "tamil", name: "தமிழ்" },
   { identifier: "kannada", name: "ಕನ್ನಡ" },
 ];
+
+export const OPENAI_KEY = "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";
